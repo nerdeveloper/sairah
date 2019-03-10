@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-mongoose.Promise = global.Promise
+mongoose.Promise = global.Promise;
 const slug = require('slugs');
+//const slug = require('url-slug');
 
 const storeSchema = new mongoose.Schema({
     name: {
@@ -8,7 +9,7 @@ const storeSchema = new mongoose.Schema({
         trim: true,
         required: "Please enter a Store name"
     },
-    slugs: String,
+    slug: String,
     description: {
         type: String,
         trim: true
@@ -16,12 +17,12 @@ const storeSchema = new mongoose.Schema({
     tags: [String]
 });
 
-storeSchema.pre('save', (next) => {
+storeSchema.pre('save', function (next){
     if(!this.isModified('name')){
         return next(); // skip
         
     }
-    this.slug =  slug(this.slug);
+    this.slug = slug(this.name);
     next();
 
     //@TODO make more resilient so slugs are unique
