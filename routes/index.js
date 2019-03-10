@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/add', (req, res) => {
-  res.render('editstore');
+  res.render('editstore', {title: 'Add store'});
 });
 
 module.exports = router;
