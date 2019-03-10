@@ -21,4 +21,10 @@ storeSchema.pre('save', (next) => {
         return next(); // skip
         
     }
-})
+    this.slug =  slug(this.slug);
+    next();
+
+    //@TODO make more resilient so slugs are unique
+});
+
+module.exports = mongoose.model('Store', storeSchema)
