@@ -4,7 +4,8 @@ const storeController  = require('../controllers/storeController')
 const { catchErrors } =  require('../handlers/errorHandlers')
 
 // Do work here
-router.get('/', storeController.homePage);
+router.get('/', storeController.getStores);
+router.get('/stores', storeController.getStores);
 
 router.get('/add', storeController.addStore);
 
