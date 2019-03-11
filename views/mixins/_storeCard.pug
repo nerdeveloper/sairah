@@ -5,5 +5,5 @@ mixin storeCard(store = {})
             h2.title
                 a(href=`/store/${store.slug}`) #{store.name}
         .store__details
-            p= store.description
+            p= store.description.split(' ').slice(0, 25).join(' ')
     
