@@ -1,5 +1,5 @@
 node_modules
-variable.env
+variables.env
 .DS_Store
 *.log
 .idea
