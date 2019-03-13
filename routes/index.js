@@ -11,4 +11,6 @@ router.get('/add', storeController.addStore);
 
 router.post('/add',  catchErrors(storeController.createStore));
 
+router.get('/stores/:id/edit', catchErrors(storeController.editStore));
+
 module.exports = router;
