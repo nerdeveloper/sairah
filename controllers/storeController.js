@@ -22,9 +22,9 @@ exports.getStores = async (req, res) => {
     const stores = await Store.find();
     res.render('store', {title: 'Stores', stores});
 };
-exports.editStore = async (res, req) => {
+exports.editStore = async (req, res) => {
     //Find store by ID
     const store = await Store.findOne({_id: req.params.id});
-    res.json(store)
-   //res.render('editStore', {title: `Edit ${store.name}`, store}) 
+    //res.json(store)
+   res.render('editStore', {title: `Edit ${store.name}`, store}) 
 }
