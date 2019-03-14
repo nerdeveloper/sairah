@@ -13,7 +13,7 @@ const storeSchema = new mongoose.Schema({
     description: {
         type: String,
         trim: true,
-        required: "Please enter a description for youu Store." 
+        required: "Please enter a description for your Store." 
     },
     tags: [String],
     created: {

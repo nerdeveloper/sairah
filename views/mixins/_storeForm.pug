@@ -1,7 +1,7 @@
 mixin storeForm(store  = {})
     form(action=`/add/${store._id || ''}`, method="POST", class="card")
         label(for="name") Name
-        input(type="text", name="name", value=store.name)
+        input(type="text", name="name", value=store.name, required)
         label(for="description") Description
         textarea(name="description")= store.description
         //- address, lng and lat
