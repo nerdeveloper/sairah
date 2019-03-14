@@ -72,8 +72,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sass_style_scss__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sass_style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__sass_style_scss__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modules_bling__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modules_autocomplete__ = __webpack_require__(3);
 
 
+
+Object(__WEBPACK_IMPORTED_MODULE_2__modules_autocomplete__["a" /* default */])(Object(__WEBPACK_IMPORTED_MODULE_1__modules_bling__["a" /* $ */])('#address'), Object(__WEBPACK_IMPORTED_MODULE_1__modules_bling__["a" /* $ */])('#lat'), Object(__WEBPACK_IMPORTED_MODULE_1__modules_bling__["a" /* $ */])('#lng'));
 
 /***/ }),
 /* 1 */
@@ -86,7 +89,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export $ */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return $; });
 /* unused harmony export $$ */
 // based on https://gist.github.com/paulirish/12fb951a8b893a454b32
 var $ = document.querySelector.bind(document);
@@ -105,6 +108,24 @@ NodeList.prototype.on = NodeList.prototype.addEventListener = function (name, fn
 };
 
 
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+function autocomplete(input, latInput, lngInput) {
+  if (!input) return; //skip this fn from running if there is not input on the page
+
+  var dropdown = new google.maps.places.Autocomplete(input);
+  dropdown.addListener('place_changed', function () {
+    var place = dropdown.getPlace();
+    latInput.value = place.geometry.location.lat();
+    lngInput.value = place.geometry.location.lng();
+  });
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (autocomplete);
 
 /***/ })
 /******/ ]);
