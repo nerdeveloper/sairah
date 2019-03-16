@@ -35,6 +35,7 @@ const storeSchema = new mongoose.Schema({
         }
     },
     photo: String
+
 });
 
 storeSchema.pre('save', function (next){

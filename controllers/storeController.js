@@ -55,7 +55,7 @@ exports.createStore = async (req, res) => {
 exports.getStores = async (req, res) => {
     //1. Query the db for the list of all stores
     const stores = await Store.find();
-    res.render('store', {title: 'Stores', stores});
+    res.render('stores', {title: 'Stores', stores});
   
 };
 exports.editStore = async (req, res) => {
@@ -75,8 +75,15 @@ exports.updateStore = async (req, res) => {
     }).exec();
     req.flash(`success`, `Sucessfully updated <strong>${store.name}</strong>. 
     <a href="/stores/${store.slug}">View more </a>`);
-    res.redirect(`/stores/${store._id}/edit`)
-
+    res.redirect(`/stores/${store._id}/edit`);
     //Redirect them to the store and tell them it worked
+};
+    exports.getStoreBySlug = async (req, res, next) => {
+        const store = await Store.findOne({ slug: req.params.slug});
+        if(!store){
+            return next();
 
+    }else{
+     res.render('store', {title: store.name, store});
+    }
 }
