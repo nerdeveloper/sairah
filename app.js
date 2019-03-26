@@ -4,9 +4,7 @@ const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const path = require('path');
 const cookieParser = require('cookie-parser');
-//const bodyParser = require('body-parser');
 const passport = require('passport');
-//const util = require('util');
 const promisify = require('es6-promisify');
 const flash = require('connect-flash');
 const expressValidator = require('express-validator');
@@ -36,12 +34,18 @@ app.use(cookieParser());
 
 // Sessions allow us to store data on visitors from request to request
 // This keeps users logged in and allows us to send flash messages
+const hour = 3600000
 app.use(session({
   secret: process.env.SECRET,
   key: process.env.KEY,
   resave: false,
   saveUninitialized: false,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
+  cookie: {
+    maxAge: hour,
+    expires: new Date(Date.now() + hour),
+   secure: true,
+  },
+   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
 // // Passport JS is what we use to handle our logins
