@@ -37,7 +37,8 @@ exports.register = async (req, res, next) => {
     const user = new User({ email: req.body.email, name: req.body.name});
     const register = promsify(User.register, User);
     await register(user, req.body.password);
-    res.send('it works!');
-  next(); //pass to the authController.login
+   // res.send('it works!');
+ 
+   next(); //pass to the authController.login
 
 };
