@@ -35,17 +35,11 @@ app.use(cookieParser());
 
 // Sessions allow us to store data on visitors from request to request
 // This keeps users logged in and allows us to send flash messages
-const hour = 3600000
 app.use(session({
   secret: process.env.SECRET,
   key: process.env.KEY,
   resave: false,
   saveUninitialized: false,
-  cookie: {
-    maxAge: hour,
-    expires: new Date(Date.now() + hour),
-   secure: true,
-  },
    store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
