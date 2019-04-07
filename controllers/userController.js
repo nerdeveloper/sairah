@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const promsify = require('es6-promisify');
 const User = require('../models/User');
 
+
 exports.loginForm = (req, res) => {
     res.render('login', {title: 'Log In '});
 };
@@ -53,7 +54,7 @@ exports.updateAccount = async (req, res) => {
         //email: req.body.email,
 
     };
-    const user  = await User.findOneAndUpdate(
+ await User.findOneAndUpdate(
         {_id: req.user._id},
         { $set: updates },
         { new: true, runValidators: true, context: 'query'}
