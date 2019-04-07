@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const User = require('../models/User');
 const cryptos = require('crypto');
 const promisify = require('es6-promisify');
-const promise = require('util')
+const promise = require('util');
+const mail = require('../handlers/mail');
 
 exports.login = passport.authenticate('local', {
 failureRedirect: '/login',
@@ -42,24 +43,29 @@ exports.forgot = async (req, res) => {
 
     // 3. Send them an email with the token
     const resetUrl = `http://${req.headers.host}/account/reset/${user.resetPasswordToken}`;
-    req.flash('success', `You have been emailed a passowrd reset link. ${resetUrl}`);
+    await mail.send({
+        user,
+        filename: 'password-reset',
+        subject: 'Password Reset',
+        resetUrl
+    });
+    req.flash('success', `You have been emailed a passowrd reset link.`);
     // 4. Redirect them to login
     res.redirect('/login')
 }
 
 exports.reset = async (req, res) => {
-const user = await User.find({
-    resetPasswordToken: req.params.token,
-    resetPasswordExpires: {$gt: Date.now()}
-});
-if(!user){
-    req.flash('error', 'Password reset is invalid or has expired!');
-    return res.redirect('/login');
-};
-// if there is a user show the rest password form
-console.log(user);
-res.render('reset', {title: 'Reset Password'});
-};
+    const user = await User.findOne({
+      resetPasswordToken: req.params.token,
+      resetPasswordExpires: { $gt: Date.now() }
+    });
+    if (!user) {
+      req.flash('error', 'Password reset is invalid or has expired');
+      return res.redirect('/login');
+    }
+    // if there is a user, show the rest password form
+    res.render('reset', { title: 'Reset your Password' });
+  };
 
 exports.confirmedPassword = (req, res, next) => {
     if(req.body.password === req.body['password-confirm']) {
