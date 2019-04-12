@@ -3,6 +3,7 @@ const Store  = mongooose.model('Store');
 const multer = require('multer');
 const jimp = require('jimp');
 const uuid = require('uuid');
+const User = mongooose.model('User');
 
 
 const multerOptions = {
@@ -141,3 +142,9 @@ exports.mapStores = async (req, res) => {
     const stores = await Store.find(q).select('slug name description location').limit(10);
     res.json(stores);
 };
+
+exports.mapPage = async(req, res) => {
+    res.render('map', {title: 'Map'})
+}
+
+
