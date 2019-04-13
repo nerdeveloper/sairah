@@ -4,5 +4,4 @@ variables.env
 *.log
 .idea
 haters/
-variables.env
 variables.env.now
