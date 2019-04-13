@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -72,7 +72,7 @@
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-var bind = __webpack_require__(3);
+var bind = __webpack_require__(4);
 
 var isBuffer = __webpack_require__(15);
 /*global toString:true*/
@@ -422,10 +422,10 @@ function getDefaultAdapter() {
 
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(5);
+    adapter = __webpack_require__(6);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(5);
+    adapter = __webpack_require__(6);
   }
 
   return adapter;
@@ -493,16 +493,41 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
   defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
 });
 module.exports = defaults;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
 /* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return $; });
+/* unused harmony export $$ */
+// based on https://gist.github.com/paulirish/12fb951a8b893a454b32
+var $ = document.querySelector.bind(document);
+var $$ = document.querySelectorAll.bind(document);
+
+Node.prototype.on = window.on = function (name, fn) {
+  this.addEventListener(name, fn);
+};
+
+NodeList.prototype.__proto__ = Array.prototype; // eslint-disable-line
+
+NodeList.prototype.on = NodeList.prototype.addEventListener = function (name, fn) {
+  this.forEach(function (elem) {
+    elem.on(name, fn);
+  });
+};
+
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(14);
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -521,7 +546,7 @@ module.exports = function bind(fn, thisArg) {
 };
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -734,7 +759,7 @@ process.umask = function () {
 };
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -750,7 +775,7 @@ var parseHeaders = __webpack_require__(21);
 
 var isURLSameOrigin = __webpack_require__(22);
 
-var createError = __webpack_require__(6);
+var createError = __webpack_require__(7);
 
 var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(23);
 
@@ -913,10 +938,10 @@ module.exports = function xhrAdapter(config) {
     request.send(requestData);
   });
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -941,7 +966,7 @@ module.exports = function createError(message, config, code, request, response) 
 };
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -952,7 +977,7 @@ module.exports = function isCancel(value) {
 };
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -976,14 +1001,14 @@ Cancel.prototype.__CANCEL__ = true;
 module.exports = Cancel;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sass_style_scss__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sass_style_scss__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sass_style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__sass_style_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modules_bling__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modules_bling__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modules_autocomplete__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modules_typeAhead__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modules_map__ = __webpack_require__(33);
@@ -997,35 +1022,10 @@ Object(__WEBPACK_IMPORTED_MODULE_3__modules_typeAhead__["a" /* default */])(Obje
 Object(__WEBPACK_IMPORTED_MODULE_4__modules_map__["a" /* default */])(Object(__WEBPACK_IMPORTED_MODULE_1__modules_bling__["a" /* $ */])('#map'));
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 11 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return $; });
-/* unused harmony export $$ */
-// based on https://gist.github.com/paulirish/12fb951a8b893a454b32
-var $ = document.querySelector.bind(document);
-var $$ = document.querySelectorAll.bind(document);
-
-Node.prototype.on = window.on = function (name, fn) {
-  this.addEventListener(name, fn);
-};
-
-NodeList.prototype.__proto__ = Array.prototype; // eslint-disable-line
-
-NodeList.prototype.on = NodeList.prototype.addEventListener = function (name, fn) {
-  this.forEach(function (elem) {
-    elem.on(name, fn);
-  });
-};
-
-
 
 /***/ }),
 /* 12 */
@@ -1054,7 +1054,7 @@ function autocomplete(input, latInput, lngInput) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_dompurify__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_dompurify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_dompurify__);
@@ -1138,7 +1138,7 @@ function typeAhead(search) {
 
 var utils = __webpack_require__(0);
 
-var bind = __webpack_require__(3);
+var bind = __webpack_require__(4);
 
 var Axios = __webpack_require__(16);
 
@@ -1171,9 +1171,9 @@ axios.create = function create(instanceConfig) {
 }; // Expose Cancel & CancelToken
 
 
-axios.Cancel = __webpack_require__(8);
+axios.Cancel = __webpack_require__(9);
 axios.CancelToken = __webpack_require__(30);
-axios.isCancel = __webpack_require__(7); // Expose all/spread
+axios.isCancel = __webpack_require__(8); // Expose all/spread
 
 axios.all = function all(promises) {
   return Promise.all(promises);
@@ -1321,7 +1321,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var createError = __webpack_require__(6);
+var createError = __webpack_require__(7);
 /**
  * Resolve or reject a Promise based on response status.
  *
@@ -1722,7 +1722,7 @@ var utils = __webpack_require__(0);
 
 var transformData = __webpack_require__(27);
 
-var isCancel = __webpack_require__(7);
+var isCancel = __webpack_require__(8);
 
 var defaults = __webpack_require__(1);
 
@@ -1853,7 +1853,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var Cancel = __webpack_require__(8);
+var Cancel = __webpack_require__(9);
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
  *
@@ -3245,9 +3245,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;function _type
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bling__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bling__ = __webpack_require__(2);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -3261,9 +3261,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var mapOptions = {
   center: {
     lat: 43.2,
-    lng: -79.8,
-    zoom: 10
-  }
+    lng: -79.8
+  },
+  zoom: 10
 };
 
 var loadPlaces = function loadPlaces(map) {
@@ -3280,8 +3280,8 @@ var loadPlaces = function loadPlaces(map) {
     ; // Create a bounds
 
     var bounds = new google.maps.LatLngBounds();
-    var infoWindow = new google.maos.infoWindow();
-    var markers = places.map(function (places) {
+    var infoWindow = new google.maps.InfoWindow();
+    var markers = places.map(function (place) {
       var _place$location$coord = _slicedToArray(place.location.coordinates, 2),
           placeLng = _place$location$coord[0],
           placeLat = _place$location$coord[1];
@@ -3290,7 +3290,7 @@ var loadPlaces = function loadPlaces(map) {
         lat: placeLat,
         lng: placeLng
       };
-      bounds.extends(position);
+      bounds.extend(position);
       var marker = new google.maps.Marker({
         map: map,
         position: position
@@ -3302,7 +3302,7 @@ var loadPlaces = function loadPlaces(map) {
     markers.forEach(function (marker) {
       return marker.addListener('click', function () {
         var html = "\n            <div class=\"popup\">\n                <a href=\"/store/".concat(this.place.slug, "\">\n                    <img src=\"/uploads/").concat(this.place.photo || 'store.png', "\" alt=\"").concat(this.place.name, "\" />\n                    <p> ").concat(this.place.name, " - ").concat(this.place.location.address, "</p>\n                </a>\n            </div>\n        ");
-        infoWindow.setCenter(html);
+        infoWindow.setContent(html);
         infoWindow.open(map, this);
       });
     }); //then zoom the map to fit all the markers perfectly

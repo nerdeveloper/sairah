@@ -5,8 +5,8 @@ const mapOptions = {
     center: {
         lat: 43.2,
         lng: -79.8,
-        zoom: 10,
-    }
+    },
+    zoom: 10,
 }
 
 const loadPlaces = (map, lat = 43.2, lng= -79.8) => {
@@ -18,15 +18,15 @@ const loadPlaces = (map, lat = 43.2, lng= -79.8) => {
         };
         // Create a bounds
         const bounds = new google.maps.LatLngBounds();
-        const infoWindow = new google.maos.infoWindow();
+        const infoWindow = new google.maps.InfoWindow();
 
-        const markers = places.map(places => {
+        const markers = places.map(place => {
             const [placeLng, placeLat] = place.location.coordinates;
             const position = {
                 lat: placeLat,
                 lng: placeLng
             };
-            bounds.extends(position);
+            bounds.extend(position);
             const marker = new google.maps.Marker({map, position});
             marker.place = place;
             return marker;
@@ -42,7 +42,7 @@ const loadPlaces = (map, lat = 43.2, lng= -79.8) => {
                 </a>
             </div>
         `;
-        infoWindow.setCenter(html);
+        infoWindow.setContent(html);
         infoWindow.open(map, this);
 
     }));

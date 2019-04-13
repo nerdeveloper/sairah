@@ -22,9 +22,9 @@ const userSchema = new Schema({
     },
     resetPasswordToken: String,
     resetPasswordExpires: Date,
-    hearts: {
-        type: mongoose.Schema.ObjectId, ref: 'Store'
-    }
+    hearts: [
+     {   type: mongoose.Schema.ObjectId, ref: 'Store' }
+    ]
 });
 userSchema.virtual('gravatar').get(function () {
     const hash = md5(this.email);
