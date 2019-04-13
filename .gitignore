@@ -4,3 +4,5 @@ node_modules
 .idea
 haters/
 variables.env.now
+.vscode
+variables.env
