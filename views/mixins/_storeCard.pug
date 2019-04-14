@@ -8,7 +8,7 @@ mixin storeCard(store = {})
                             - const heartStrings = user.hearts.map(obj => obj.toString())
                             - const heartClass  = heartStrings.includes(store._id.toString()) ? 'heart__button--hearted' : ''
                             
-                            button.heart__button(type="submit" name="heart" class="heartClass")
+                            button.heart__button(type="submit" name="heart" class=heartClass)
                                 != h.icon('heart')
                 if  user && store.author.equals(user._id)
                     .store__action.store__action--edit
