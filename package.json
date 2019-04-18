@@ -5,6 +5,9 @@
   "engines": {
     "node": ">= 7.6.0"
   },
+  "now":{
+    "dotenv": "variables.env.now"
+  },
   "scripts": {
     "start": "node ./server.js",
     "watch": "nodemon ./server.js --ignore public/",
