@@ -6,5 +6,16 @@
            "use": "@now/node", 
            "config": { "maxLambdaSize": "22mb" }, 
            "dotenv": "variables.env.now" }
-    ]
-}
+    ],
+
+    "env": {
+        "NODE_ENV": "production",
+        "DATABASE": "mongodb+srv://odirionye:odirionye1@thats-delicious-4tr48.mongodb.net/test?retryWrites=true",
+        "PORT": "80",
+        "MAP_KEY": "AIzaSyBOlsqlIMTVRW8X27KfH_2U52M0NNibBps",
+        "SECRET": "C826BA0AA4D49CBA903CF8E59A40F3B3",
+        "KEY": "cartapp",
+        "SENDGRID_API": "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" 
+    
+    }
+    }
