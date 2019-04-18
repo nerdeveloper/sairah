@@ -13,7 +13,7 @@
        }
     ],
     "routes": [
-        { "src": "/public/(.*)", "dest": "/public/$1"},
+        { "src": "/(dist|fonts|images|javascript|sass|uploads)/(.*)", "dest": "/public/$1/$2"},
         { "src": "/(.*)", "dest": "/server.js"}
     ],
     "env": {
