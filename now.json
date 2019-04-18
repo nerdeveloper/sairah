@@ -2,7 +2,7 @@
     "version": 2,
     "name": "express",
     "builds": [
-        { "src": "server.js", 
+        { "src": "/", 
            "use": "@now/node-server", 
            "config": { "maxLambdaSize": "22mb" }
          }
