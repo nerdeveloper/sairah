@@ -2,6 +2,9 @@
     "version": 1,
     "name": "express",
     "builds": [
-        { "src": "server.js", "use": "@now/node", "config": { "maxLambdaSize": "22mb" } }
+        { "src": "server.js", 
+           "use": "@now/node", 
+           "config": { "maxLambdaSize": "22mb" }, 
+           "dotenv": "variables.env.now" }
     ]
 }
