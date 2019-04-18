@@ -6,9 +6,14 @@
            "src": "/server.js", 
            "use": "@now/node-server", 
            "config": { "maxLambdaSize": "50mb" }
+       },
+       {
+           "src": "/public/**", 
+           "use": "@now/static"
        }
     ],
     "routes": [
+        { "src": "/public/(.*)", "dest": "/public/$1"}
         { "src": "/(.*)", "dest": "/server.js"}
     ],
     "env": {
