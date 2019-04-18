@@ -1,5 +1,5 @@
 {
-    "version": 2,
+    "version": 1,
     "name": "express",
     "builds": [
         { "src": "server.js", "use": "@now/node", "config": { "maxLambdaSize": "22mb" } }
