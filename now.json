@@ -1,24 +1,22 @@
 {
-  version: 2,
-  name: "express",
-  builds: [
-    {
-      src: "/server.js",
-      use: "@now/node-server",
-      config: { maxLambdaSize: "50mb" }
+    "version": 2,
+    "name": "express",
+    "builds": [
+        { "src": "/server.js", 
+           "use": "@now/node-server", 
+           "config": { "maxLambdaSize": "50mb" }
+         }
+    ],
+
+    "env": {
+        "NODE_ENV": "production",
+        "DATABASE": "mongodb+srv://odirionye:odirionye1@thats-delicious-4tr48.mongodb.net/test?retryWrites=true",
+        "PORT": "80",
+        "MAP_KEY": "AIzaSyBOlsqlIMTVRW8X27KfH_2U52M0NNibBps",
+        "SECRET": "C826BA0AA4D49CBA903CF8E59A40F3B3",
+        "KEY": "cartapp",
+        "SENDGRID_API": "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" 
+    
+    },
+    "public": true
     }
-  ],
-  routes: [{ src: "/(.*)", dest: "/server.js" }],
-  env: {
-    NODE_ENV: "production",
-    DATABASE:
-      "mongodb+srv://odirionye:odirionye1@thats-delicious-4tr48.mongodb.net/test?retryWrites=true",
-    PORT: "80",
-    MAP_KEY: "AIzaSyBOlsqlIMTVRW8X27KfH_2U52M0NNibBps",
-    SECRET: "C826BA0AA4D49CBA903CF8E59A40F3B3",
-    KEY: "cartapp",
-    SENDGRID_API:
-      "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"
-  },
-  public: true
-}
