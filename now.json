@@ -1,10 +1,29 @@
 {
-    "version": 1,
-    "name": "express",
+    "version": 2,
+    "name": "sairah",
     "builds": [
-        { "src": "server.js", 
-           "use": "@now/node", 
-           "config": { "maxLambdaSize": "22mb" }, 
-           "dotenv": "variables.env.now" }
-    ]
+        {
+           "src": "/server.js", 
+           "use": "@now/node-server", 
+           "config": { "maxLambdaSize": "50mb" }
+       },
+       {
+           "src": "/public/**", 
+           "use": "@now/static"
+       }
+    ],
+    "routes": [
+        { "src": "/(dist|fonts|images|javascript|sass|uploads)/(.*)", "dest": "/public/$1/$2"},
+        { "src": "/(.*)", "dest": "/server.js"}
+    ],
+    "env": {
+        "NODE_ENV": "production",
+        "DATABASE": "mongodb+srv://nerdeveloper:AsN1zB7K41VcAs8K@thats-delicious-4tr48.mongodb.net/test?retryWrites=true",
+        "PORT": "80",
+        "MAP_KEY": "AIzaSyD-awOpJiFYvJ-5mkJ7iZZ9CBNGbIExYWw",
+        "SECRET": "7D9387E98ACAA8A350A58F57A567FCA3BC995C13CDB3F1BC3939A5896C2EE0FF",
+        "KEY": "cartapp",
+        "SENDGRID_API": "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"
+    },
+    "public": true
 }
