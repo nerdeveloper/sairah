@@ -51,7 +51,10 @@ exports.resize = async (req, res, next) => {
 exports.createStore = async (req, res) => {
   req.body.author = req.user._id;
   const store = await new Store(req.body).save();
-  req.flash('success', `Successfully Created ${store.name}. Care to leave a review?`);
+  req.flash(
+    'success',
+    `Successfully Created ${store.name}. Care to leave a review?`,
+  );
   // res.redirect(`/store/${store.slug}`);
   res.redirect(`/stores`);
 };
@@ -93,7 +96,9 @@ exports.updateStore = async (req, res) => {
   // Redirect them to the store and tell them it worked
 };
 exports.getStoreBySlug = async (req, res, next) => {
-  const store = await Store.findOne({slug: req.params.slug}).populate('author reviews');
+  const store = await Store.findOne({slug: req.params.slug}).populate(
+    'author reviews',
+  );
   if (!store) return next();
   res.render('store', {title: store.name, store});
 };

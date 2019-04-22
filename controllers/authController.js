@@ -1,5 +1,5 @@
+/* eslint-disable consistent-return */
 const passport = require('passport');
-const mongoose = require('mongoose');
 const cryptos = require('crypto');
 const promisify = require('es6-promisify');
 const User = require('../models/User');
@@ -41,7 +41,9 @@ exports.forgot = async (req, res) => {
   await user.save();
 
   // 3. Send them an email with the token
-  const resetUrl = `http://${req.headers.host}/account/reset/${user.resetPasswordToken}`;
+  const resetUrl = `http://${req.headers.host}/account/reset/${
+    user.resetPasswordToken
+  }`;
   await mail.send({
     user,
     filename: 'password-reset',
@@ -94,6 +96,9 @@ exports.update = async (req, res) => {
 
   const updatedUser = await user.save();
   await req.login(updatedUser);
-  req.flash('success', 'Nice! Your password has been reset! You are now logged in!');
+  req.flash(
+    'success',
+    'Nice! Your password has been reset! You are now logged in!',
+  );
   res.redirect('/');
 };

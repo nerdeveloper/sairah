@@ -36,12 +36,16 @@ function typeAhead(search) {
       .get(`/api/search?q=${this.value}`)
       .then(res => {
         if (res.data.length) {
-          searchResults.innerHTML = dompurify.sanitize(searchResultsHTML(res.data));
+          searchResults.innerHTML = dompurify.sanitize(
+            searchResultsHTML(res.data),
+          );
           return;
         }
         // tell them nothing came back
         searchResults.innerHTML = dompurify.sanitize(
-          `<div class="search__result"> No result for ${this.value} found! </div>`,
+          `<div class="search__result"> No result for ${
+            this.value
+          } found! </div>`,
         );
       })
       .catch(err => {

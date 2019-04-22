@@ -12,7 +12,8 @@
         "prettier"
     ],
     "rules": {
-        "generators": "always",
+        "treatUndefinedAsUnspecified": true,
+        "no-console": "off",
         "prettier/prettier": [
             "error"
         ],

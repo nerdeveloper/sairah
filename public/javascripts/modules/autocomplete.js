@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-undef */
 function autocomplete(input, latInput, lngInput) {
   if (!input) return; // skip this fn from running if there is not input on the page
 

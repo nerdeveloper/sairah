@@ -19,8 +19,12 @@ exports.validateRegister = (req, res, next) => {
     gmail_remove_subaddress: false,
   });
   req.checkBody('password', 'Password cannot be blank!').notEmpty();
-  req.checkBody('password-confirm', 'Confirmed Password cannot be blank!').notEmpty();
-  req.checkBody('password-confirm', "Oops! Your Passwords don't match!").equals(req.body.password);
+  req
+    .checkBody('password-confirm', 'Confirmed Password cannot be blank!')
+    .notEmpty();
+  req
+    .checkBody('password-confirm', "Oops! Your Passwords don't match!")
+    .equals(req.body.password);
 
   const errors = req.validationErrors();
   if (errors) {
