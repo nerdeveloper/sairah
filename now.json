@@ -25,5 +25,8 @@
         "KEY": "cartapp",
         "SENDGRID_API": "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"
     },
-    "public": true
+    "public": true,
+    "github": {
+        "enabled": false
+      }
 }
