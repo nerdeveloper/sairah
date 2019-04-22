@@ -7,6 +7,7 @@
   },
   "scripts": {
     "start": "node ./server.js",
+    "test": "eslint .",
     "watch": "nodemon ./server.js --ignore public/",
     "serve": "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
     "assets": "webpack -w --display-max-modules 0",
