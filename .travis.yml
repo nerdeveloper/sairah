@@ -1,0 +1,18 @@
+sudo: false
+language: node_js
+node_js:
+  - "8"
+  
+branches:
+  only:
+    - master
+notifications:
+  email: true
+
+before_script:
+  - npm prune
+script:
+  - npm i -g now 
+  - npm run now
+after_success:
+  - now
