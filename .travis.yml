@@ -9,8 +9,10 @@ branches:
 notifications:
   email: true
 
+before_script:
+  - npm prune --production
 script:
-  - npm i -g now 
   - npm run test
-after_success:
+  - npm i -g now 
+  after_success:
   - now
