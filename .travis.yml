@@ -9,8 +9,6 @@ branches:
 notifications:
   email: true
 
-before_script:
-  - npm prune
 script:
   - npm i -g now 
   - npm run test
