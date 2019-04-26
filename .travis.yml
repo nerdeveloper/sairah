@@ -9,6 +9,7 @@ notifications:
   email: true
 before_script:
   - npm prune --production
+  - npm install 
 script:
   - npm run test
   - npm i -g now 
