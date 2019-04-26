@@ -9,9 +9,9 @@ notifications:
   email: true
 before_script:
   - npm prune --production
-  - npm install 
-script:
-  - npm run test
+  - npm install
+ script:
   - npm i -g now 
+  - npm run test
 after_success:
    - now --token=$NOW_TOKEN 
