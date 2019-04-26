@@ -15,4 +15,4 @@ script:
   - npm run test
   - npm i -g now 
   after_success:
-  - now
+  - now --token=$NOW_TOKEN 

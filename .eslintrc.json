@@ -8,6 +8,13 @@
         "commonjs": true,
         "node": true
     },
+    "settings": {
+        "import/resolver": {
+          "node": {
+            "paths": ["models"]
+          }
+        }
+      },
     "plugins": [
         "prettier"
     ],
