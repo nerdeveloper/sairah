@@ -16,15 +16,16 @@
         { "src": "/(dist|fonts|images|javascript|sass|uploads)/(.*)", "dest": "/public/$1/$2"},
         { "src": "/(.*)", "dest": "/server.js"}
     ],
-    "env": {
+     "env": {
         "NODE_ENV": "production",
-        "DATABASE": "mongodb+srv://nerdeveloper:AsN1zB7K41VcAs8K@thats-delicious-4tr48.mongodb.net/test?retryWrites=true",
+        "DATABASE": "@database",
         "PORT": "80",
-        "MAP_KEY": "AIzaSyD-awOpJiFYvJ-5mkJ7iZZ9CBNGbIExYWw",
-        "SECRET": "7D9387E98ACAA8A350A58F57A567FCA3BC995C13CDB3F1BC3939A5896C2EE0FF",
+        "MAP_KEY": "@map_key",
+        "SECRET": "@secret",
         "KEY": "cartapp",
-        "SENDGRID_API": "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"
-    },
+        "SENDGRID_API": "@sendgrid_api"
+    
+},
     "public": true
 
 }
