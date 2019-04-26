@@ -8,13 +8,6 @@
         "commonjs": true,
         "node": true
     },
-    "settings": {
-        "import/resolver": {
-          "alias": [
-            ["models", "./models"]
-           ]
-         }
-      },
     "plugins": [
         "prettier"
     ],
@@ -33,7 +26,9 @@
                 "ignoreUrls": true,
                 "ignoreStrings": true,
                 "ignoreTemplateLiterals": true,
-                "ignoreRegExpLiterals": true
+                "ignoreRegExpLiterals": true,
+                "import/no-unresolved": 0,
+                "import/extensions": 0
                 
             }
         ]
