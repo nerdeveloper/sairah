@@ -65,7 +65,7 @@ exports.getStores = async (req, res) => {
   // eslint-disable-next-line prettier/prettier
   const skip = page * limit - limit;
   // 1. Query the db for the list of all stores
-  const storesPromise =  Store.find()
+  const storesPromise = Store.find()
     .skip(skip)
     .limit(limit)
     .sort({created: 'desc'});
