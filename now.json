@@ -4,7 +4,7 @@
     "builds": [
         {
            "src": "/server.js", 
-           "use": "@now/node-server", 
+           "use": "@now/node", 
            "config": { "maxLambdaSize": "50mb" }
        },
        {
