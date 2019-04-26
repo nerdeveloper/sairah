@@ -10,7 +10,7 @@ notifications:
 before_script:
   - npm prune --production
   - npm install
- script:
+script:
   - npm i -g now 
   - npm run test
 after_success:
