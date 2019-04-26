@@ -2,13 +2,11 @@ sudo: false
 language: node_js
 node_js:
   - "8"
-
 branches:
   only:
     - master
 notifications:
   email: true
-
 before_script:
   - npm prune --production
 script:
