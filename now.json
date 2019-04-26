@@ -26,6 +26,10 @@
         "SENDGRID_API": "@sendgrid_api"
     
 },
-    "public": true
+    "public": true, 
+
+    "github": {
+        "enabled": false
+      }
 
 }
