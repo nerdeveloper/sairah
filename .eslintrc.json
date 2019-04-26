@@ -17,6 +17,8 @@
         "prettier/prettier": [
             "error"
         ],
+        "import/no-unresolved": 0,
+        "import/extensions": 0,
         "max-len": [
             "warn",
             {
@@ -27,8 +29,7 @@
                 "ignoreStrings": true,
                 "ignoreTemplateLiterals": true,
                 "ignoreRegExpLiterals": true,
-                "import/no-unresolved": 0,
-                "import/extensions": 0
+                
                 
             }
         ]
