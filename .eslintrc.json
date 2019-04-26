@@ -10,10 +10,10 @@
     },
     "settings": {
         "import/resolver": {
-          "node": {
-            "paths": ["models"]
-          }
-        }
+          "alias": [
+            ["models", "./models"]
+           ]
+         }
       },
     "plugins": [
         "prettier"
