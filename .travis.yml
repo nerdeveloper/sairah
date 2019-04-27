@@ -14,4 +14,4 @@ script:
   - npm i -g now@13.0.4
   - npm run test
 after_success:
-   - now --public --token=$NOW_TOKEN 
+   - now --token=$NOW_TOKEN --public 
