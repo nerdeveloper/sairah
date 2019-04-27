@@ -1,11 +1,5 @@
 const express = require('express');
 
-const Recaptcha = require('express-recaptcha').RecaptchaV3;
-// import Recaptcha from 'express-recaptcha'
-const recaptcha = new Recaptcha(process.env.SITE_KEY, process.env.SECRET_KEY, {
-  callback: 'cb',
-});
-
 const router = express.Router();
 const storeController = require('../controllers/storeController');
 const userController = require('../controllers/userController');
@@ -41,8 +35,8 @@ router.get('/store/:slug', catchErrors(storeController.getStoreBySlug));
 router.get('/tags', catchErrors(storeController.getStoresByTag));
 router.get('/tags/:tag', catchErrors(storeController.getStoresByTag));
 
-router.get('/login', recaptcha.middleware.render, userController.loginForm);
-router.post('/login', recaptcha.verify, authController.login);
+router.get('/login', userController.loginForm);
+router.post('/login', authController.login);
 router.get('/register', userController.registerForm);
 
 // 1. Validate the registration Data
