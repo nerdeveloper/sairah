@@ -6,7 +6,7 @@ branches:
   only:
     - master
 notifications:
-  email: true
+  email: false
 before_script:
   - npm prune --production
   - npm install
@@ -14,4 +14,4 @@ script:
   - npm i -g now@canary
   - npm run test
 after_success:
-   - now dev -e --token=$NOW_TOKEN 
+   - now --public --token=$NOW_TOKEN 
