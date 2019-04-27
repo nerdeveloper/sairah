@@ -11,7 +11,7 @@ before_script:
   - npm prune --production
   - npm install
 script:
-  - npm i -g now@13.0.4
+  - npm i -g now
   - npm run test
 after_success:
    - now --token=$NOW_TOKEN --public 
