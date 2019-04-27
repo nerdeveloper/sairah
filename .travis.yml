@@ -11,7 +11,7 @@ before_script:
   - npm prune --production
   - npm install
 script:
-  - npm i -g now
+  - npm i -g now@canary
   - npm run test
 after_success:
-   - now --token=$NOW_TOKEN --public 
+   - now dev --token=$NOW_TOKEN 

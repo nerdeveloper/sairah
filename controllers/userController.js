@@ -2,7 +2,7 @@ const promsify = require('es6-promisify');
 const User = require('../models/User');
 
 exports.loginForm = (req, res) => {
-  res.render('login', {title: 'Log In '});
+  res.render('login', {title: 'Log In', captcha: res.recaptcha});
 };
 
 exports.registerForm = (req, res) => {
