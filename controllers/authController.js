@@ -1,4 +1,10 @@
 /* eslint-disable consistent-return */
+
+const Recaptcha = require('express-recaptcha').RecaptchaV3;
+// import Recaptcha from 'express-recaptcha'
+//const recaptcha = new Recaptcha(process.env.SITE_KEY, process.env.SECRET_KEY, {
+  callback: 'cb',
+});
 const passport = require('passport');
 const cryptos = require('crypto');
 const promisify = require('es6-promisify');

@@ -14,4 +14,4 @@ script:
   - npm i -g now@canary
   - npm run test
 after_success:
-   - now dev --token=$NOW_TOKEN 
+   - now dev -e --token=$NOW_TOKEN 
