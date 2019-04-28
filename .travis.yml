@@ -12,6 +12,7 @@ before_script:
 script:
   - npm i -g now
   - npm run test
+  - ls -a 
 after_success:
    - now --public --token=$NOW_TOKEN 
   
