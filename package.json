@@ -22,7 +22,7 @@
     "connect-flash": "0.1.1",
     "connect-mongo": "2.0.3",
     "cookie-parser": "1.4.4",
-    "dompurify": "1.0.10",
+    "dompurify": "2.0.3",
     "dotenv": "6.2.0",
     "es6-promisify": "5.0.0",
     "express": "4.16.4",
